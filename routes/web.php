@@ -29,3 +29,8 @@ Route::get('/menu', function () {
     return view('contact');
     
  });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
