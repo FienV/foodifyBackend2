@@ -11,6 +11,14 @@ class User extends \TCG\Voyager\Models\User
 {
     use HasFactory, Notifiable;
 
+    public function city() {
+        return $this->belongsTo(City::class);
+    }
+
+    public function order() {
+        return $this->hasMany(Order::class);
+    }
+      
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +28,9 @@ class User extends \TCG\Voyager\Models\User
         'name',
         'email',
         'password',
+        'phone',
+        'city_id',
+        'address'
     ];
 
     /**
