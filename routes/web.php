@@ -35,8 +35,8 @@ Route:: get('/api/city', function () {
     return $api;
 });
 
-Route::get('/signup', 'App\Http\Controllers\ClientController@Create');
-Route::post('/signup', 'App\Http\Controllers\ClientController@Store');
+Route::get('/signup', 'ClientController@Create');
+Route::post('/signup', 'ClientController@Store');
 
 
 Route::group(['prefix' => 'admin'], function () {
