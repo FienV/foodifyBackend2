@@ -20,4 +20,13 @@ class Order extends Model
     public function dish() {
         return $this->belongsToMany(Dish::class);
     }
+
+    public function scopeActive($query)
+    {
+        // ORDER eager loaden met de dish... en daar de id van opvragen.
+        // Die id gaan vergelijken met de id van de user.
+        
+        $currentuser = Auth::user()->getKey();
+        //return $query->where('active', 1);
+    }
 }
