@@ -1,5 +1,6 @@
 @extends('layout.theme')
 @section('content')
+
 <!-- header -->
 <div class="page-heading header-text">
   <div class="container">

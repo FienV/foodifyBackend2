@@ -9,7 +9,4 @@ class Client extends Model
 {
     use HasFactory;
 
-    public function city() {
-        return $this->belongsTo(City::class);
-    }
 }

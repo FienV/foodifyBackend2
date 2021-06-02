@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+
+    
   </head>
 
   <body>
@@ -62,8 +64,7 @@
         </div>
       </nav>
     </header>
-
-
+    
     @yield('content')
      
     <!-- Footer Starts Here -->
