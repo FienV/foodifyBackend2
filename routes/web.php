@@ -21,14 +21,22 @@ Route::get('/menu', function () {
     return view('menu');
  });
 
- Route::get('/winkelmandje', function () {
+Route::get('/winkelmandje', function () {
     return view('winkelmandje');
  });
 
- Route::get('/contact', function () {
+Route::get('/contact', function () {
     return view('contact');
     
  });
+
+Route:: get('/api/city', function () {
+    $api = City::get()->toJson();
+    return $api;
+});
+
+Route::get('/signup', 'App\Http\Controllers\ClientController@Create');
+Route::post('/signup', 'App\Http\Controllers\ClientController@Store');
 
 
 Route::group(['prefix' => 'admin'], function () {
