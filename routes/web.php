@@ -38,6 +38,8 @@ Route:: get('/api/city', function () {
 Route::get('/signup', 'ClientController@Create');
 Route::post('/signup', 'ClientController@Store');
 
+Route::get('/contact', 'ContactController@Create');
+Route::post('/contact', 'ContactController@Store');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
