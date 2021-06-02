@@ -36,7 +36,7 @@
             <label for="exampleFormControlSelect1">Postcode en gemeente</label>
             <select class="form-control" name="city_id">
             @foreach ($cities as $city)
-                <option value="{{$city->id}}">{{$city->zipcode}} - {{$city->name}}</option>
+                <option value="{{$city->id}}">{{$city->name}} - {{$city->zipcode}}</option>
             @endforeach
             </select>
         </div> 
