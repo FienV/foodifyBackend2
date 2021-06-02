@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/menu', function () {
-    return view('menu');
- });
+// Route::get('/menu', function () {
+//     return view('menu');
+//  });
 
  Route::get('/winkelmandje', function () {
     return view('winkelmandje');
@@ -34,3 +34,5 @@ Route::get('/menu', function () {
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/menu', 'DishController@index');
