@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/menu', function () {
-    return view('menu');
- });
+// Route::get('/menu', function () {
+//     return view('menu');
+//  });
 
 Route::get('/winkelmandje', function () {
     return view('winkelmandje');
@@ -42,3 +42,5 @@ Route::post('/signup', 'App\Http\Controllers\ClientController@Store');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/menu', 'DishController@index');
