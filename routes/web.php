@@ -26,6 +26,15 @@ Route::get('/contact', function () {
     
  });
 
+Route::get('/detailsorder/{id}', function ($id) {
+  $result = App\Models\Order::with('dish','user')->where('id',$id)->firstOrFail();
+  //dd($result);
+  foreach ($result->dish as $restoid){
+    echo $restoid->restaurant_id."<hr>";
+  }
+  
+});
+
 Route:: get('/api/city', function () {
     $api = City::get()->toJson();
     return $api;
