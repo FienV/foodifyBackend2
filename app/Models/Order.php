@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class Order extends Model
 {
@@ -27,6 +30,6 @@ class Order extends Model
         // Die id gaan vergelijken met de id van de user.
         
         $currentuser = Auth::user()->getKey();
-        //return $query->where('active', 1);
+        return $query->where('user_id', $currentuser);
     }
 }

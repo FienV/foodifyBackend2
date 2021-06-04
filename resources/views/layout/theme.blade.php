@@ -55,7 +55,7 @@
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item"><a class="{{Request::path() === '/' ? 'nav-link active active' : 'nav-link' }}" href="/">Home</a></li>
-              <li class="nav-item"><a class="{{Request::path() === 'menu' ? 'nav-link active active' : 'nav-link' }}" href="/menu">Menu</a></li>
+              <li class="nav-item"><a class="{{Request::path() === 'menu' ? 'nav-link active active' : 'nav-link' }}" href="/restaurant">Restaurants</a></li>
               <li class="nav-item"><a class="{{Request::path() === 'winkelmandje' ? 'nav-link active active' : 'nav-link' }}" href="/winkelmandje">Winkelmandje</a></li>
               <li class="nav-item"><a class="{{Request::path() === 'contact' ? 'nav-link active active' : 'nav-link' }}" href="/contact">Contact</a></li>
             </ul>

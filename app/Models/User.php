@@ -18,6 +18,7 @@ class User extends \TCG\Voyager\Models\User
     public function order() {
         return $this->hasMany(Order::class);
     }
+
       
     /**
      * The attributes that are mass assignable.

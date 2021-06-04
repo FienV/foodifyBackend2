@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>Menu's</h1>
+        <h1>Restaurants</h1>
         <!-- <span>Lorem ipsum dolor sit amet.</span> -->
       </div>
     </div>
@@ -18,23 +18,24 @@
       <div class="row">
         <div class="col-md-12">
           <div class="section-heading">
-            <h2>Onze <em>Menu's</em></h2>
+            <h2>Onze <em>Restaurants</em></h2>
             <span>Aliquam id urna imperdiet libero mollis hendrerit</span>
           </div>
         </div>
 
         <!-- menu's weergeven -->
-        @foreach ($dishes as $dish)
+        @foreach ($restaurants as $restaurant)
         <div class="col-md-4">
           <div class="service-item">
-            <img src="/storage/{{$dish->image}}" alt="">
             <div class="down-content">
-              <h4>{{$dish->name}}</h4>
+              <h4>{{$restaurant->resto_name}}</h4>
               <div style="margin-bottom:10px;">
-                <span> <sup>€</sup>{{$dish->price}}<sup></span>
+                <p>Adres: {{$restaurant->address}} - {{$restaurant->city->zipcode}} {{$restaurant->city->name}}</p>
               </div>
-              <p>{{$dish->description}}</p>
-              <a href="" class="filled-button">Bestel</a>
+              <div style="margin-bottom:10px;">
+                <p>{{$restaurant->description}}</p>
+              </div>
+              <a href="/menu/{{$restaurant->id}}" class="filled-button mt-3">Bekijk onze menu</a>
             </div>
           </div> 
           <br>
