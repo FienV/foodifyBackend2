@@ -20,6 +20,10 @@ class User extends \TCG\Voyager\Models\User
         return $this->hasMany(Order::class);
     }
 
+    public function restaurant() {
+        return $this->hasMany(Restaurant::class);
+    }
+
       
     /**
      * The attributes that are mass assignable.
@@ -61,7 +65,7 @@ class User extends \TCG\Voyager\Models\User
         if (Auth::user()->role_id == 2 or Auth::user()->role_id == 3) 
         {
         $currentuser = Auth::user()->getKey();
-        return $query->where('user_id', $currentuser);
+        return $query->where('id', $currentuser);
         } 
     }
 }
