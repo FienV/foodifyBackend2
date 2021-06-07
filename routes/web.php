@@ -17,9 +17,13 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/winkelmandje', function () {
-    return view('winkelmandje');
- });
+// Route::get('/menu', function () {
+//     return view('menu');
+//  });
+
+Route::get('/cart', 'CartController@index');
+Route::post('/cart', 'CartController@Store');
+
 
 Route::get('/contact', function () {
     return view('contact');
