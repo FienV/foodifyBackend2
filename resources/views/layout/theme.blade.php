@@ -56,7 +56,7 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item"><a class="{{Request::path() === '/' ? 'nav-link active active' : 'nav-link' }}" href="/">Home</a></li>
               <li class="nav-item"><a class="{{Request::path() === 'menu' ? 'nav-link active active' : 'nav-link' }}" href="/menu">Menu</a></li>
-              <li class="nav-item"><a class="{{Request::path() === 'winkelmandje' ? 'nav-link active active' : 'nav-link' }}" href="/winkelmandje">Winkelmandje</a></li>
+              <li class="nav-item"><a class="{{Request::path() === 'cart' ? 'nav-link active active' : 'nav-link' }}" href="/cart">Winkelmandje</a></li>
               <li class="nav-item"><a class="{{Request::path() === 'contact' ? 'nav-link active active' : 'nav-link' }}" href="/contact">Contact</a></li>
             </ul>
           </div>
@@ -83,9 +83,9 @@
           <div class="col-md-6 footer-item">
             <h4>Additional Pages</h4>
             <ul class="menu-list">
-              <li><a href="#">Menu</a></li>
-              <li><a href="#">Winkemandje</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="/menu">Menu</a></li>
+              <li><a href="/cart">Winkemandje</a></li>
+              <li><a href="/contact">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -97,7 +97,7 @@
         <div class="row">
           <div class="col-md-12">
             <p>
-                Copyright © 2020 Company Name
+                Copyright © 2021 Foodify
                 - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
             </p>
           </div>
