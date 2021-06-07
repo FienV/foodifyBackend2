@@ -25,7 +25,7 @@ class Dish extends Model
         if (Auth::user()->role_id == 3) 
         {
         $currentuser = Auth::user()->getKey();
-        return $query->where('user_id', $currentuser);
+        return $query->where('restaurant_id', $currentuser);
         } 
     }
 }
