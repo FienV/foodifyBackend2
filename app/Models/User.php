@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends \TCG\Voyager\Models\User
 {
@@ -18,6 +19,11 @@ class User extends \TCG\Voyager\Models\User
     public function order() {
         return $this->hasMany(Order::class);
     }
+
+    public function restaurant() {
+        return $this->hasMany(Restaurant::class);
+    }
+
       
     /**
      * The attributes that are mass assignable.
@@ -51,4 +57,15 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopeUser($query)
+    {
+        // ORDER eager loaden met de dish... en daar de id van opvragen.
+        // Die id gaan vergelijken met de id van de user.
+        if (Auth::user()->role_id == 2 or Auth::user()->role_id == 3) 
+        {
+        $currentuser = Auth::user()->getKey();
+        return $query->where('id', $currentuser);
+        } 
+    }
 }

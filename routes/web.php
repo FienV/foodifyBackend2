@@ -24,10 +24,20 @@ Route::get('/', function () {
 Route::get('/cart', 'CartController@index');
 Route::post('/cart', 'CartController@Store');
 
+
 Route::get('/contact', function () {
     return view('contact');
     
  });
+
+Route::get('/detailsorder/{id}', function ($id) {
+  $result = App\Models\Order::with('dish','user')->where('id',$id)->firstOrFail();
+  //dd($result);
+  foreach ($result->dish as $restoid){
+    echo $restoid->restaurant_id."<hr>";
+  }
+  
+});
 
 Route:: get('/api/city', function () {
     $api = City::get()->toJson();
@@ -44,4 +54,6 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('/menu', 'DishController@index');
+Route::get('/menu/{id}', 'DishController@detail');
+
+Route::get('/restaurant', 'RestaurantController@index');
