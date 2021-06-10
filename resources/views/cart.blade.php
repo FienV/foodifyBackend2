@@ -25,20 +25,22 @@
             <th>Prijs</th>
             <th>Hoeveelheid</th>
           </tr>
+          
         </thead>
         
         <tbody>
-          @foreach ($dishes as $dish)
+          @foreach ($orders as $order)
           <tr class="alert" role="alert">
             <td>
               <div class="email">
-                <span>{{$dish->name}} </span>
-                <span>{{$dish->description}}</span>
+                <span>{{$order->name}} </span>
+                <span>{{$order->description}}</span>
               </div>
             </td>
-            <td>€ {{$dish->price}}</td>
+            <td>€ {{$order->price}}</td>
             <td class="quantity">
               <div class="input-group">
+                <span> {{$order->quantity}}</span>
                  <input type="text" name="quantity" class="quantity form-control input-number"  min="1" max="100">
               </div>
             </td>
@@ -48,15 +50,16 @@
               </button>
             </td>
           </tr>
+          @endforeach
          </tbody>
       </table>
     </div>
   </div>
 </div>
-@endforeach
+
 <!--order button --> 
 
-<button type="button" class="btn btn-primary" action="/order">
+<button type="submit" class="btn btn-primary" action="/order">
   <span >Bestellen</span>
 </button>
 
