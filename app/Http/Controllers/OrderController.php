@@ -14,7 +14,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $order = 'order';
+        return view('cart',compact('order'));
     }
 
     /**
@@ -35,7 +36,53 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dish = Dish:: find($id);
+        if(!$dish) {
+            abort(404);
+        }    
+
+        $order = session() -> get ('order'); 
+        
+        //if cart is empty then this is the first product to be added
+
+        if(!$order){
+
+            $order = [ 
+                $id => [ 
+                    'name' => $dish -> name, 
+                    'description' => $dish -> description,
+                    'price' =>$dish-> price,
+                    'quantitiy' => 1                    
+                ]
+            ];
+
+            session() -> put ('order', $order);
+
+            return redirect()-> back()-> with('succes', 'Product added to cart succesfully!');
+        }
+
+        // if cart not empty then check if this product exists, then increment quantity
+
+        if (isset($order[$id])){
+            $order[$id][ 'quantitiy']++;
+            
+            session() -> put ('order', $order);
+
+            return redirect()-> back()-> with('succes', 'product added to cart succesfully!');
+        }
+
+
+        // if item doesnt exist in cart, then add to cart with quantity = 1 
+        $order[$id] = [
+            'name' => $dish -> name,
+            'description' => $dish -> description,
+            'price' =>$dish-> price,
+            'quantitiy' => 1
+        ];
+
+        session() -> put ('order', $order);
+
+        return redirect()-> back()-> with('succes', 'product added to cart succesfully!');
     }
 
     /**

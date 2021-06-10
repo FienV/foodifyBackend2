@@ -36,17 +36,26 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+        
+
         $validate = request()->validate([
             'name' => 'required',
             'email' => 'required|email',
             'subject' => 'required',
             'message' => 'required',
-            ]);
+        ]);
 
-            Mail::send('mails.contact', compact('validate'), function($message){
-                $message->to('info@foodify.com')
-                ->subject('Contactformulier van '. request('name'));
-            });
+        $Contact = contact::create([
+            'name' => $request-> name, 
+            'email' => $request-> email,
+            'subject' => $request-> subject,
+            'message' => $request-> message
+        ]);
+
+        Mail::send('mails.contact', compact('validate'), function($message){
+            $message->to('info@foodify.com')
+            ->subject('Contactformulier van '. request('name'));
+        });
 
         return view('contactok');
     }
