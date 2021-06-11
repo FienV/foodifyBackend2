@@ -23,10 +23,10 @@ Route::get('/', function () {
 //     return view('menu');
 //  });
 
-Route::get('/order', 'OrderController@index');
+Route::get('/order', 'OrderController@detail');
 Route::post('/order', 'OrderController@store');
 
-Route::get('/cart', 'OrderController@index');
+
 
 Route::get('/contact', function () {
     return view('contact');

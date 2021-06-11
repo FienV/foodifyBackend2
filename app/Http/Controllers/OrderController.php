@@ -14,8 +14,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $order = 'order';
-        return view('cart',compact('order'));
+        //
+    }
+
+    public function detail($id) {
+        $orders = Order::with('dish')->where('user_id', $id)->get();
+        return view('chart',compact('orders'));
     }
 
     /**
