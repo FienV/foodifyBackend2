@@ -29,8 +29,7 @@ Route::post('/order', 'OrderController@store');
 
 
 Route::get('/contact', function () {
-    return view('contact');
-    
+    return view('contact');  
 });
 
 Route::get('/detailsorder/{id}', function ($id) {
