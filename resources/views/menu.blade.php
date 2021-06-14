@@ -37,7 +37,7 @@
                 <span> <sup>€</sup>{{$dish->price}}<sup></span>
               </div>
               <p>{{$dish->description}}</p>
-              <a  class="filled-button" action="/order" method="post" href="/order">Bestel</a>
+              <a  class="filled-button"  method="post" href="/order">Bestel</a>
             </div>
           </div> 
           <br>

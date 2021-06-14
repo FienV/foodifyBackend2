@@ -50,14 +50,14 @@
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Foodify</h2></a>
+          <a class="navbar-brand" href="/"><h2>Foodify</h2></a>
           
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item"><a class="{{Request::path() === '/' ? 'nav-link active active' : 'nav-link' }}" href="/">Home</a></li>
 
               <li class="nav-item"><a class="{{Request::path() === 'restaurant' ? 'nav-link active active' : 'nav-link' }}" href="/restaurant">Restaurants</a></li>
-              <li class="nav-item"><a class="{{Request::path() === 'cart' ? 'nav-link active active' : 'nav-link' }}" href="/cart">Winkelmandje</a></li>
+              <li class="nav-item"><a class="{{Request::path() === 'cart' ? 'nav-link active active' : 'nav-link' }}" href="/order">Winkelmandje</a></li>
 
               <li class="nav-item"><a class="{{Request::path() === 'contact' ? 'nav-link active active' : 'nav-link' }}" href="/contact">Contact</a></li>
             </ul>
@@ -74,11 +74,11 @@
         <div class="row">
           <div class="col-md-6 footer-item">
             <h4>Foodify</h4>
-            <p>Vivamus tellus mi. Nulla ne cursus elit,vulputate. Sed ne cursus augue hasellus lacinia sapien vitae.</p>
+            <p>Ontdek op deze site de lekkerste restaurants bij jouw in de buurt.</p>
             <ul class="social-icons">
-              <li><a rel="nofollow" href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a rel="nofollow" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://twitter.com/?lang=nl"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://www.linkedin.com/feed/"><i class="fa fa-linkedin"></i></a></li>
             </ul>
           </div>
           
@@ -86,7 +86,7 @@
             <h4>Additional Pages</h4>
             <ul class="menu-list">
               <li><a href="/restaurant">Restaurants</a></li>
-              <li><a href="/cart">Winkemandje</a></li>
+              <li><a href="/order">Winkemandje</a></li>
               <li><a href="/contact">Contact</a></li>
             </ul>
           </div>
