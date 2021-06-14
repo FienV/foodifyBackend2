@@ -50,6 +50,12 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/menu/{id}', 'DishController@detail');
 
+Route::get('/order/{id}', function ($id) {
+  dd(session('dishes'));
+
+  session()->push('dishes', $id);
+
+});
 
 Route::get('/restaurant', 'RestaurantController@index');
 
