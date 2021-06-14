@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\City;
 use App\Models\Cart;
 use App\Models\Order;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,13 +24,21 @@ Route::get('/', function () {
 //     return view('menu');
 //  });
 
-Route::get('/order', 'OrderController@index');
-Route::post('/order', 'OrderController@store');
+//Route::get('/order', 'OrderController@index');
+//Route::get('/order/{id}', 'OrderController@store');
 
-
+Route::get('/order/{id}', function ($id) {
+    session('dishes'); 
+    session(['dishes' => $id ]);
+    dd(session()->push('dishes', $id));
+  });
 
 Route::get('/contact', function () {
     return view('contact');  
+});
+
+Route::get('/validation', function () {
+  return view('validation');  
 });
 
 Route::get('/detailsorder/{id}', function ($id) {
@@ -39,11 +48,6 @@ Route::get('/detailsorder/{id}', function ($id) {
     echo $restoid->restaurant_id."<hr>";
   }
   
-});
-
-Route:: get('/api/city', function () {
-    $api = City::get()->toJson();
-    return $api;
 });
 
 Route::get('/signup', 'ClientController@Create');
