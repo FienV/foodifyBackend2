@@ -31,7 +31,7 @@ class Order extends Model
         if (Auth::user()->role_id == 2 or Auth::user()->role_id == 3) 
         {
         $currentuser = Auth::user()->getKey();
-        return $query->where('restaurant_id', $currentuser);
+        return $query->where('user_id', $currentuser);
         } 
     }
 }

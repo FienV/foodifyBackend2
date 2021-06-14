@@ -14,14 +14,17 @@ class Dish extends Model
         return $this->belongsTo(Restaurant::class);
     }
 
+    public function course() {
+        return $this->belongsTo(Course::class);
+    }
+
+
     public function order() {
         return $this->belongsToMany(Order::class);
     }
   
     public function scopeDish($query)
     {
-        // ORDER eager loaden met de dish... en daar de id van opvragen.
-        // Die id gaan vergelijken met de id van de user.
         if (Auth::user()->role_id == 3) 
         {
         $currentuser = Auth::user()->getKey();

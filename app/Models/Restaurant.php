@@ -24,8 +24,6 @@ class Restaurant extends Model
 
     public function scopeResto($query)
     {
-        // ORDER eager loaden met de dish... en daar de id van opvragen.
-        // Die id gaan vergelijken met de id van de user.
         if (Auth::user()->role_id == 3) 
         {
         $currentuser = Auth::user()->getKey();
