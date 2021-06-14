@@ -17,11 +17,6 @@ class OrderController extends Controller
         //
     }
 
-    public function detail($id) {
-        $orders = Order::with('dish')->where('user_id', $id)->get();
-        return view('chart',compact('orders'));
-    }
-
     /**
      * Show the form for creating a new resource.
      *

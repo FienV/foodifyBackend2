@@ -60,8 +60,6 @@ class User extends \TCG\Voyager\Models\User
 
     public function scopeUser($query)
     {
-        // ORDER eager loaden met de dish... en daar de id van opvragen.
-        // Die id gaan vergelijken met de id van de user.
         if (Auth::user()->role_id == 2 or Auth::user()->role_id == 3) 
         {
         $currentuser = Auth::user()->getKey();

@@ -23,7 +23,7 @@ Route::get('/', function () {
 //     return view('menu');
 //  });
 
-Route::get('/order', 'OrderController@detail');
+Route::get('/order', 'OrderController@index');
 Route::post('/order', 'OrderController@store');
 
 
