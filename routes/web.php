@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\City;
+use App\Models\Cart;
+use App\Models\Order;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,14 +23,15 @@ Route::get('/', function () {
 //     return view('menu');
 //  });
 
-Route::get('/cart', 'CartController@index');
-Route::post('/cart', 'CartController@Store');
+Route::get('/order', 'OrderController@detail');
+Route::post('/order', 'OrderController@store');
+
 
 
 Route::get('/contact', function () {
     return view('contact');
     
- });
+});
 
 Route::get('/detailsorder/{id}', function ($id) {
   $result = App\Models\Order::with('dish','user')->where('id',$id)->firstOrFail();
@@ -55,5 +58,6 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/menu/{id}', 'DishController@detail');
+
 
 Route::get('/restaurant', 'RestaurantController@index');

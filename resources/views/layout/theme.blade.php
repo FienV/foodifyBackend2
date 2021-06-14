@@ -12,12 +12,12 @@
     <title>Foodify</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="{{ env('APP_URL')}}/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="{{ env('APP_URL')}}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ env('APP_URL')}}/assets/css/owl.css">
 
   </head>
 
@@ -56,8 +56,8 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item"><a class="{{Request::path() === '/' ? 'nav-link active active' : 'nav-link' }}" href="/">Home</a></li>
 
-              <li class="nav-item"><a class="{{Request::path() === 'menu' ? 'nav-link active active' : 'nav-link' }}" href="/restaurant">Restaurants</a></li>
-              <li class="nav-item"><a class="{{Request::path() === 'winkelmandje' ? 'nav-link active active' : 'nav-link' }}" href="/winkelmandje">Winkelmandje</a></li>
+              <li class="nav-item"><a class="{{Request::path() === 'restaurant' ? 'nav-link active active' : 'nav-link' }}" href="/restaurant">Restaurants</a></li>
+              <li class="nav-item"><a class="{{Request::path() === 'cart' ? 'nav-link active active' : 'nav-link' }}" href="/cart">Winkelmandje</a></li>
 
               <li class="nav-item"><a class="{{Request::path() === 'contact' ? 'nav-link active active' : 'nav-link' }}" href="/contact">Contact</a></li>
             </ul>
@@ -85,7 +85,7 @@
           <div class="col-md-6 footer-item">
             <h4>Additional Pages</h4>
             <ul class="menu-list">
-              <li><a href="/menu">Menu</a></li>
+              <li><a href="/restaurant">Restaurants</a></li>
               <li><a href="/cart">Winkemandje</a></li>
               <li><a href="/contact">Contact</a></li>
             </ul>
@@ -100,7 +100,7 @@
           <div class="col-md-12">
             <p>
                 Copyright © 2021 Foodify
-                - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
+                <!-- <span> - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a> </span> -->
             </p>
           </div>
         </div>
@@ -108,14 +108,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Additional Scripts -->
-    <script src="assets/js/custom.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/slick.js"></script>
-    <script src="assets/js/accordions.js"></script>
+    <script src="{{ env('APP_URL')}}/assets/js/custom.js"></script>
+    <script src="{{ env('APP_URL')}}/assets/js/owl.js"></script>
+    <script src="{{ env('APP_URL')}}/assets/js/slick.js"></script>
+    <script src="{{ env('APP_URL')}}/assets/js/accordions.js"></script>
 
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
