@@ -34,7 +34,8 @@
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
-    <div class="sub-header">
+    
+    <!-- <div class="sub-header">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-xs-12">
@@ -45,7 +46,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <header class="">
       <nav class="navbar navbar-expand-lg">
@@ -58,6 +59,15 @@
               <li class="nav-item"><a class="{{Request::path() === 'restaurant' ? 'nav-link active active' : 'nav-link' }}" href="/restaurant">Restaurants</a></li>
               <li class="nav-item"><a class="{{Request::path() === 'cart' ? 'nav-link active active' : 'nav-link' }}" href="/order">Winkelmandje</a></li>
               <li class="nav-item"><a class="{{Request::path() === 'contact' ? 'nav-link active active' : 'nav-link' }}" href="/contact">Contact</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  sign up
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/signup">Registreer</a>
+                  <a class="dropdown-item" href="/admin">Login</a>
+                </div>
+              </li>
             </ul>
           </div>
           
