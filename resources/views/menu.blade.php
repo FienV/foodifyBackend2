@@ -1,17 +1,11 @@
 @extends('layout.theme')
+
+<!-- {{ asset("css/style.css") }} -->
 @section('content')
 
+
 <!-- header -->
-<div class="page-heading header-text">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Menu's</h1>
-        <!-- <span>Lorem ipsum dolor sit amet.</span> -->
-      </div>
-    </div>
-  </div>
-</div>
+<div class="page-heading header-text"></div>
 
 <div class="services">
     <div class="container">
@@ -19,7 +13,7 @@
         <div class="col-md-12">
           <div class="section-heading">
             <h2>Onze <em>Menu's</em></h2>
-            <span>Aliquam id urna imperdiet libero mollis hendrerit</span>
+            <span>Maak kennis met onze menu's, gemaakt met verse producten en aan huis geleverd.</span>
           </div>
         </div>
 
