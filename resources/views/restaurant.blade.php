@@ -2,16 +2,7 @@
 @section('content')
 
 <!-- header -->
-<div class="page-heading header-text">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Restaurants</h1>
-        <!-- <span>Lorem ipsum dolor sit amet.</span> -->
-      </div>
-    </div>
-  </div>
-</div>
+<div class="page-heading header-text"></div>
 
 <div class="services">
     <div class="container">
@@ -20,6 +11,7 @@
           <div class="section-heading">
             <h2>Onze <em>Restaurants</em></h2>
             <span>Neem een kijkje tussen de deelnemende restaurants en leer nieuwe gerechten kennen.</span>
+
           </div>
         </div>
 
