@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Dish;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -14,7 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        
+        $orders = Dish::find(session('dishes'));
+        //dd($orders);
+        return view('cart',compact('orders'));
     }
 
     /**

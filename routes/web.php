@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\City;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Dish;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -20,18 +21,12 @@ Route::get('/', function () {
     return view('home');
 });
 
-// Route::get('/menu', function () {
-//     return view('menu');
-//  });
-
-//Route::get('/order', 'OrderController@index');
-//Route::get('/order/{id}', 'OrderController@store');
-
 Route::get('/order/{id}', function ($id) {
-    session('dishes'); 
-    session(['dishes' => $id ]);
-    dd(session()->push('dishes', $id));
+    session()->push('dishes', $id);
   });
+
+  Route::get('/cart', 'OrderController@index');
+
 
 Route::get('/contact', function () {
     return view('contact');  
@@ -39,15 +34,6 @@ Route::get('/contact', function () {
 
 Route::get('/validation', function () {
   return view('validation');  
-});
-
-Route::get('/detailsorder/{id}', function ($id) {
-  $result = App\Models\Order::with('dish','user')->where('id',$id)->firstOrFail();
-  //dd($result);
-  foreach ($result->dish as $restoid){
-    echo $restoid->restaurant_id."<hr>";
-  }
-  
 });
 
 Route::get('/signup', 'ClientController@Create');
