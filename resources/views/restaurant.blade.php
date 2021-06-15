@@ -10,6 +10,8 @@
         <div class="col-md-12">
           <div class="section-heading">
             <h2>Onze <em>Restaurants</em></h2>
+            <span>Neem een kijkje tussen de deelnemende restaurants en leer nieuwe gerechten kennen.</span>
+
           </div>
         </div>
 

@@ -28,9 +28,13 @@ Route::get('/', function () {
 //Route::get('/order/{id}', 'OrderController@store');
 
 Route::get('/order/{id}', function ($id) {
-    session('dishes'); 
-    session(['dishes' => $id ]);
-    dd(session()->push('dishes', $id));
+    session()->push('dishes', $id);
+    dd(session('dishes'));
+    // if dd($myorder);
+  });
+  Route::get('/afrekenen', function() {
+    $myorder = Dish::find(session('dishes'));
+    return view('mycart',compact('myorder'));
   });
 
 Route::get('/contact', function () {
