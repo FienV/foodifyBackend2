@@ -34,6 +34,10 @@ a.filled-button {
 	border-radius: 30px;
 	display: inline-block;
 	transition: all 0.3s;
+	position: absolute;
+	bottom:25px;
+	width: 80%;
+    text-align: center;
 }
 
 a.filled-button:hover {
@@ -566,6 +570,8 @@ ul.slick-dots {
 .service-item .down-content {
 	background-color: #f7f7f7;
 	padding: 30px;
+	height: 450px;
+	position:relative;
 }
 
 .service-item .down-content h4 {
@@ -895,6 +901,7 @@ ul.slick-dots {
 	box-shadow: none;
 	text-shadow: none;
 	cursor: pointer;
+
 }
 
 .contact-us .contact-form button.filled-button:hover {
@@ -1365,6 +1372,7 @@ footer .contact-form button.filled-button:hover {
 		position: absolute;
 		left: 30px;
 		top: 10px;
+		padding: 0px 0px; 
 	}
 	.navbar .navbar-brand {
 		width: auto;
@@ -1375,12 +1383,13 @@ footer .contact-form button.filled-button:hover {
 	#navbarResponsive {
 	    z-index: 99999;
 	    position: absolute;
-	    top: 80px;
-	    left: 0;
-	    width: 100%;
+	    top: 0px;
+	    left: 65%;
+		right: 0%;
 	    text-align: center;
-	    background-color: #fff;
+	    background-color: rgba(255, 255, 255, 0.904);
 	    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+		border-radius: 3px;
 	}
 	.navbar .navbar-nav .nav-item {
 		border-bottom: 1px solid #eee;
@@ -1389,7 +1398,7 @@ footer .contact-form button.filled-button:hover {
 		border-bottom: none;
 	}
 	.navbar .navbar-nav a.nav-link {
-		padding: 15px 0px;
+		padding: 3px 0px;
 		color: #1e1e1e!important;
 	}
 	.navbar .navbar-nav .nav-link:hover,
