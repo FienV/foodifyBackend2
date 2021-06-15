@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Dish;
 use Illuminate\Http\Request;
+use App\Http\Controllers\MollieController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,10 +27,11 @@ Route::get('/order/{id}', function ($id) {
     dd(session('dishes'));
     // if dd($myorder);
   });
+  
   Route::get('/afrekenen', function() {
     $myorder = Dish::find(session('dishes'));
     return view('mycart',compact('myorder'));
-
+  });
 
   Route::get('/cart', 'OrderController@index');
 
@@ -56,3 +58,7 @@ Route::get('/menu/{id}', 'DishController@detail');
 
 
 Route::get('/restaurant', 'RestaurantController@index');
+
+
+Route::get('mollie-paymnet',[MollieController::Class,'preparePayment'])->name('mollie.payment');
+Route::get('payment-success',[MollieController::Class, 'paymentSuccess'])->name('payment.success');
