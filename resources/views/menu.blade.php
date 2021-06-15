@@ -28,7 +28,7 @@
                 <span> <sup>€</sup>{{$dish->price}}<sup></span>
               </div>
               <p>{{$dish->description}}</p>
-              <a  class="filled-button"  href="/cart">Bestel</a>
+              <a  class="filled-button"  method="post" href="/order/{{$dish->id}}">Bestel</a>
             </div>
           </div> 
           <br>
