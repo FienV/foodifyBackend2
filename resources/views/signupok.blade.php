@@ -1,13 +1,27 @@
 @extends('layout.theme')
+
 @section('content')
+
 <div class="page-heading header-text">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-            <h2>Bedankt, uw registratie is gelukt!</h2>
-        </div>
-      </div>
-    </div>
-  </div>
+
+</div>
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-12">
+
+<div class="section-heading m-5">
+
+<h2>Bedankt, <em>uw registratie is gelukt!</em></h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 @endsection

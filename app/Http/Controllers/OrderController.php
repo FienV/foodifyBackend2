@@ -15,12 +15,27 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index(Request $request, $id)
     {
         session()->push('dishes', $id);
         $orders = Dish::find(session('dishes'));
         $types = Type::all();
-        return view('cart',compact('orders', 'types'));
+        
+        $totalprice= "['']";
+   
+
+
+        // $total = collect ($request->price)->sum();
+        //dd($total, $orders);
+        //$total = collect($order->Price)->sum();
+
+
+        //deletefuction for x button 
+        //session()->forget('dish', $id) ;
+
+       
+        
+        return view('cart',compact('orders', 'types','totalprice'));
     }
 
     /**
@@ -30,6 +45,7 @@ class OrderController extends Controller
      */
     public function create()
     {
+        
         /*$validate = request()->validate([
             'type_id' => 'required',
         ]);
@@ -51,7 +67,35 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+      //$student->course()->attach(request('course')); 
+      
+      if(Auth::check()) {
+        $key = $order->dish()->attach(request('dish')); 
 
+        dd($key);
+        $order = Order::create (
+
+        [
+
+        'type_id' => $request->type_id,
+
+        'user_id' => Auth::user()->getKey(),
+
+        ]
+
+        );
+
+
+
+        return view('mollie-payment');
+
+
+
+        } else {
+
+        return view ('signup');
+
+        }
     }
 
     /**
@@ -62,7 +106,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+   
     }
 
     /**
@@ -73,7 +117,7 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        $request->session()->forget(['dish', $id]);
     }
 
     /**
@@ -98,4 +142,8 @@ class OrderController extends Controller
     {
         //
     }
+
+
+    
+
 }
