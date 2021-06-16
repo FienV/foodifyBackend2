@@ -66,7 +66,7 @@
       <option value="{{$type->id}}">{{$type->name}}</option>
       @endforeach
     </select>
-    </div> 
+    </div>
 </div>
 <button type="submit" class="btn btn-primary m-3" action="/order">
   <span >Bestellen</span>

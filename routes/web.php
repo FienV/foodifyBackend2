@@ -5,6 +5,7 @@ use App\Models\City;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Dish;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MollieController;
 /*
@@ -21,20 +22,9 @@ use App\Http\Controllers\MollieController;
 Route::get('/', function () {
     return view('home');
 });
-
-Route::get('/order/{id}', function ($id) {
-    session()->push('dishes', $id);
-    dd(session('dishes'));
-    // if dd($myorder);
-  });
   
-  Route::get('/afrekenen', function() {
-    $myorder = Dish::find(session('dishes'));
-    return view('mycart',compact('myorder'));
-  });
-
-  Route::get('/cart', 'OrderController@index');
-  Route::post('/cart', 'OrderController@Store');
+Route::get('/order/{id}', 'OrderController@index');
+Route::post('/order/{id}', 'OrderController@Store');
 
 
 Route::get('/contact', function () {
