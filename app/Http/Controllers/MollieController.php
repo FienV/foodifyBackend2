@@ -44,6 +44,7 @@ class MollieController extends Controller
         $latest = \App\Models\Order::latest()->first();
         $latest->payment = 1;
         $latest->save();
+        return redirect('validation');
         //redirecten naar bedankt
     }
   

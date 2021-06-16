@@ -25,6 +25,9 @@ Route::get('/', function () {
   
 Route::get('/order/{id}', 'OrderController@index');
 Route::post('/order/{id}', 'OrderController@Store');
+//route::get('/order/{id}', 'OrderController@show');
+
+//Route::delete('/order/{id}/edit', 'OrderController@Edit');
 
 
 Route::get('/contact', function () {
@@ -51,5 +54,7 @@ Route::get('/menu/{id}', 'DishController@detail');
 Route::get('/restaurant', 'RestaurantController@index');
 
 
-Route::get('mollie-paymnet',[MollieController::Class,'preparePayment'])->name('mollie.payment');
+Route::get('mollie-payment',[MollieController::Class,'preparePayment'])->name('mollie.payment');
 Route::get('payment-success',[MollieController::Class, 'paymentSuccess'])->name('payment.success');
+
+
