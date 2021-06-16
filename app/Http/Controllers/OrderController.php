@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Dish;
+use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -16,8 +18,9 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Dish::find(session('dishes'));
+        $types = Type::all();
         //dd($orders);
-        return view('cart',compact('orders'));
+        return view('cart',compact(['orders', 'types']));
     }
 
     /**
@@ -27,7 +30,17 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $validate = request()->validate([
+            'type_id' => 'required',
+        ]);
+    
+        if(Auth::check()) {
+
+            return view('validation', compact('orders'));
+
+        } else {
+            return view ('signup');
+        }
     }
 
     /**
@@ -38,7 +51,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-    //
+
     }
 
     /**

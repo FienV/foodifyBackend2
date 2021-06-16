@@ -45,13 +45,6 @@ class ContactController extends Controller
             'message' => 'required',
         ]);
 
-        $Contact = contact::create([
-            'name' => $request-> name, 
-            'email' => $request-> email,
-            'subject' => $request-> subject,
-            'message' => $request-> message
-        ]);
-
         Mail::send('mails.contact', compact('validate'), function($message){
             $message->to('info@foodify.com')
             ->subject('Contactformulier van '. request('name'));

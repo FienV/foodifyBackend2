@@ -13,7 +13,7 @@
 
 
 <!--cart-->
-<div class="container">
+<div class="container" method="post" action="/validation">
 <div class="row">
   <div class="col-md-12">
     <div class="table-wrap">
@@ -56,9 +56,18 @@
     </div>
   </div>
 </div>
-
+<br>
 <!--order button --> 
-
+<div class="col-md-4">
+  <div class="form-group mt-3">
+    <label for="exampleFormControlSelect1">Kies een bezorgoptie</label>
+     <select class="form-control" name="type">
+      @foreach ($types as $type)
+      <option value="{{$type->id}}">{{$type->name}}</option>
+      @endforeach
+    </select>
+    </div> 
+</div>
 <button type="submit" class="btn btn-primary m-3" action="/order">
   <span >Bestellen</span>
 </button>

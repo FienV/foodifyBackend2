@@ -34,6 +34,7 @@ Route::get('/order/{id}', function ($id) {
   });
 
   Route::get('/cart', 'OrderController@index');
+  Route::post('/cart', 'OrderController@Store');
 
 
 Route::get('/contact', function () {
