@@ -15,12 +15,12 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
+        session()->push('dishes', $id);
         $orders = Dish::find(session('dishes'));
         $types = Type::all();
-        //dd($orders);
-        return view('cart',compact(['orders', 'types']));
+        return view('cart',compact('orders', 'types'));
     }
 
     /**
@@ -30,7 +30,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $validate = request()->validate([
+        /*$validate = request()->validate([
             'type_id' => 'required',
         ]);
     
@@ -40,7 +40,7 @@ class OrderController extends Controller
 
         } else {
             return view ('signup');
-        }
+        }*/
     }
 
     /**

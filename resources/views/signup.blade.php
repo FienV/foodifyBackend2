@@ -1,21 +1,21 @@
 @extends('layout.theme')
 @section('content')
 
-<div class="page-heading header-text">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Registreer u hier</h2>
+<div class="page-heading header-text"></div>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading mt-5">
+          <h2>Registreer u <em>hier</em></h2>
         </div>
       </div>
-    </div>
-  </div>
 
-<div class="col md-8">
-    <form method="post" action="/signup" enctype="multipart/form-data">
-     @csrf
-        <div class="form-group mt-3">
-            <label for="">Volledige naam</label>
+        <div class="col md-8">
+             <form method="post" action="/signup" enctype="multipart/form-data">
+             @csrf
+            <div class="form-group mt-3">
+                <label for="">Volledige naam</label>
             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
         </div>
         <div class="form-group mt-3">
@@ -47,5 +47,7 @@
 
         <button type="submit" class="btn btn-primary my-3">Submit</button>
     </form>
+</div>
+</div>
 </div>
 @endsection
