@@ -29,7 +29,7 @@ Route::get('/order/{id}', function ($id) {
   Route::get('/afrekenen', function() {
     $myorder = Dish::find(session('dishes'));
     return view('mycart',compact('myorder'));
-
+  });
 
   Route::get('/cart', 'OrderController@index');
   Route::post('/cart', 'OrderController@Store');
