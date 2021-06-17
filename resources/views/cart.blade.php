@@ -31,6 +31,8 @@
             
             <tbody>
               <div class="col-md-8">
+
+              @php $totalprice = 0; @endphp
               @foreach ($orders as $order)
               <tr class="alert" role="alert">
                 <td>
@@ -47,11 +49,12 @@
                   </div>
                 </td>
                 <td>
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"  function="forget">
+                  <a href='/removecart/{{$order->id}}' type="button" class="close" data-dismiss="alert" aria-label="Close"  function="forget">
                     <span aria-hidden="true"><i class="fa fa-close"></i></span>
-                  </button>
+                  </a>
                 </td>
               </tr>
+              @php $totalprice = $totalprice + $order->price; @endphp
               @endforeach
               <tr>
                 <td>
@@ -63,7 +66,9 @@
                 <td>
                   <div class="section-heading price ">
                   
-                    <h2> €  {{$totalprice = collect($order->Price)->sum()}}</h2>    
+
+
+                    <h2> €  {{$totalprice}}</h2>    
                             
                   </div>
                 </td>

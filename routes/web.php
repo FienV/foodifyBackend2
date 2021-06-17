@@ -51,13 +51,24 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/menu/{id}', 'DishController@detail');
 
 Route::get('/order/{id}', function ($id) {
-  dd(session('dishes'));
-
+  
   session()->push('dishes', $id);
+  //print_r(session('dishes'));
+ 
 
 });
 
 Route::get('/restaurant', 'RestaurantController@index');
+
+Route::get('/cart', function () {
+ 
+  // Get the dishes from the session array
+  $orders = App\Models\Dish::whereIn('id', session('dishes'))->get();
+  $types = App\Models\Type::get();
+  return view('cart', compact('orders','types'));
+
+  
+});
 
 
 Route::get('mollie-payment',[MollieController::Class,'preparePayment'])->name('mollie.payment');
