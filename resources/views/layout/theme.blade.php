@@ -57,7 +57,7 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item"><a class="{{Request::path() === '/' ? 'nav-link active active' : 'nav-link' }}" href="/">Home</a></li>
               <li class="nav-item"><a class="{{Request::path() === 'restaurant' ? 'nav-link active active' : 'nav-link' }}" href="/restaurant">Restaurants</a></li>
-              <li class="nav-item"><a class="{{Request::path() === 'cart' ? 'nav-link active active' : 'nav-link' }}" href="/order/{id}">Winkelmandje</a></li>
+              <li class="nav-item"><a class="{{Request::path() === 'cart' ? 'nav-link active active' : 'nav-link' }}" href="/cart">Winkelmandje</a></li>
               <li class="nav-item"><a class="{{Request::path() === 'contact' ? 'nav-link active active' : 'nav-link' }}" href="/contact">Contact</a></li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
