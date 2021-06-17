@@ -25,6 +25,7 @@
                 <th><h3>Gerecht</h3></th>
                 <th><h3>Prijs</h3></th>
                 <th><h3>Hoeveelheid<h3></th>
+                  <th></th>
               </tr>
               
             </thead>
@@ -49,8 +50,9 @@
                   </div>
                 </td>
                 <td>
-                  <a href='/removecart/{{$order->id}}' type="button" class="close" data-dismiss="alert" aria-label="Close"  function="forget">
-                    <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                  <a href='/removecart/{{$order->id}}'>
+                    <span aria-hidden="true"><i class="fa fa-close" style="color: #dc3545;
+                      font-size: 20px;"></i></span>
                   </a>
                 </td>
               </tr>

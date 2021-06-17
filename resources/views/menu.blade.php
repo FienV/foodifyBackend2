@@ -16,7 +16,6 @@
             <span>Maak kennis met onze menu's, gemaakt met verse producten en aan huis geleverd.</span>
           </div>
         </div>
-
         <!-- menu's weergeven -->
         @foreach ($dishes as $dish)
         <div class="col-md-4">
@@ -28,7 +27,7 @@
                 <span> <sup>€</sup>{{$dish->price}}<sup></span>
               </div>
               <p>{{$dish->description}}</p>
-              <a  class="filled-button"  href="/order/{{$dish->id}}">Bestel</a>
+              <a  class="filled-button"  href="/order/{{$dish->id}}/{{$dish->restaurant->id}}">Bestel</a>
             </div>
           </div> 
           <br>
