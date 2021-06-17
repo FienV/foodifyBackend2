@@ -56,27 +56,12 @@
               </tr>
               @php $totalprice = $totalprice + $order->price; @endphp
               @endforeach
-              <tr>
-                <td>
-                  <div class="section-heading price">
-                    <h2> <em>Totaalprijs:</em></h2>
-                  </div>
-                </td>
-                
-                <td>
-                  <div class="section-heading price ">
-                  
-
-
-                    <h2> €  {{$totalprice}}</h2>    
-                            
-                  </div>
-                </td>
-                
-              </tr>          
+                    
             </div>
             </tbody>
           </table>
+           <h2 class='ml-2'>Totaalprijs: € {{$totalprice}}</h2>
+          
         </div>
       </div>
     </div>
