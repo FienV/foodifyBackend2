@@ -25,10 +25,6 @@ Route::get('/', function () {
   
 Route::get('/order/{id}', 'OrderController@index');
 Route::post('/order/{id}', 'OrderController@Store');
-//route::get('/order/{id}', 'OrderController@show');
-
-//Route::delete('/order/{id}/edit', 'OrderController@Edit');
-
 
 Route::get('/contact', function () {
     return view('contact');  
@@ -37,6 +33,8 @@ Route::get('/contact', function () {
 Route::get('/validation', function () {
   return view('validation');  
 });
+
+Route::get('/affirmation', 'OrderController@create');
 
 Route::get('/signup', 'ClientController@Create');
 Route::post('/signup', 'ClientController@Store');
@@ -53,10 +51,6 @@ Route::get('/menu/{id}', 'DishController@detail');
 Route::get('/order/{id}/{resto_id}', function ($id,$resto_id) {
   
   session()->push('dishes', $id);
-  //print_r(session('dishes'));
-  
-  //return to the resto dishes.... Would be nice to implement a sweetalert with succes added to cart notification
-  //we retrieve the resto id from the view as it is eager loaded in the collection ($dish->restaurant->id)
   return redirect('/menu/'.$resto_id);
 });
 

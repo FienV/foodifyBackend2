@@ -18,7 +18,6 @@ class Dish extends Model
         return $this->belongsTo(Course::class);
     }
 
-
     public function order() {
         return $this->belongsToMany(Order::class);
     }
@@ -28,7 +27,8 @@ class Dish extends Model
         if (Auth::user()->role_id == 3) 
         {
         $currentuser = Auth::user()->getKey();
-        return $query->where('restaurant_id', $currentuser);
+        $dishresto = Dish::with('restaurant')->get();
+        return $query->where($dishresto->user_id, $currentuser);
         } 
     }
 }

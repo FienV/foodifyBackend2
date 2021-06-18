@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Dish;
 use App\Models\Type;
+use App\Models\City;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,19 +23,7 @@ class OrderController extends Controller
         $types = Type::all();
         
         $totalprice= "['']";
-   
-
-
-        // $total = collect ($request->price)->sum();
-        //dd($total, $orders);
-        //$total = collect($order->Price)->sum();
-
-
-        //deletefuction for x button 
-        //session()->forget('dish', $id) ;
-
        
-        
         return view('cart',compact('orders', 'types','totalprice'));
     }
 
@@ -45,18 +34,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        
-        /*$validate = request()->validate([
-            'type_id' => 'required',
-        ]);
-    
-        if(Auth::check()) {
-
-            return view('validation', compact('orders'));
-
-        } else {
-            return view ('signup');
-        }*/
+        $cities = City::all();
+        $types = Type::all();
+        return view('affirmation', compact('cities', 'types'));
     }
 
     /**
@@ -66,36 +46,8 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-      //$student->course()->attach(request('course')); 
+    {  
       
-      if(Auth::check()) {
-        $key = $order->dish()->attach(request('dish')); 
-
-        dd($key);
-        $order = Order::create (
-
-        [
-
-        'type_id' => $request->type_id,
-
-        'user_id' => Auth::user()->getKey(),
-
-        ]
-
-        );
-
-
-
-        return view('mollie-payment');
-
-
-
-        } else {
-
-        return view ('signup');
-
-        }
     }
 
     /**

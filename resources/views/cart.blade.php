@@ -15,7 +15,7 @@
 <!--cart-->
 
 <div class="container">
-  <form method="post" action="/signup" enctype="multipart/form-data">
+  <form method="post" action="/cart" enctype="multipart/form-data">
     <div class="row">
       <div class="col-md-12">
         <div class="table-wrap">
@@ -68,19 +68,9 @@
       </div>
     </div>
     <br>
-    <div class="col-md-4">
-      <div class="form-group ">
-        <label for="exampleFormControlSelect1">Kies een bezorgoptie</label>
-        <select class="form-control" name="type">
-          @foreach ($types as $type)
-          <option value="{{$type->id}}">{{$type->name}}</option>
-          @endforeach
-        </select>
-        </div>
-    </div>
   </form>
     <!--order button -->   
-    <button type="submit" class="buy-btn">Betaal</button>
+    <a href="/affirmation"><button type="submit" class="buy-btn">Bestel</button></a>
 </div>
 
 @endsection

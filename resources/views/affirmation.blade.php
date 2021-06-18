@@ -1,0 +1,59 @@
+@extends('layout.theme')
+@section('content')
+
+<div class="page-heading header-text"></div>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading mt-5">
+          <h2>Uw <em>gegevens</em></h2>
+        </div>
+      </div>
+
+        <div class="col md-8">
+             <form method="post" action="/affirmation" enctype="multipart/form-data">
+             @csrf
+            <div class="form-group mt-3">
+                <label for="">Volledige naam</label>
+            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+        </div>
+        <div class="form-group mt-3">
+            <label for="">Email</label>
+            <input type="text" class="form-control" name="email" value="{{ old('email') }}">
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="">Telefoon</label>
+            <input type="text" class="form-control" name="phone" value="{{ old('phone') }}">
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="">Adres</label>
+            <input type="text" class="form-control" name="address" value="{{ old('address') }}">
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="exampleFormControlSelect1">Postcode en gemeente</label>
+            <select class="form-control" name="city_id">
+            @foreach ($cities as $city)
+                <option value="{{$city->id}}">{{$city->name}} - {{$city->zipcode}}</option>
+            @endforeach
+            </select>
+        </div> 
+        
+        <div class="form-group mt-3">
+            <label for="exampleFormControlSelect1">Kies een bezorgoptie</label>
+            <select class="form-control" name="type_id">
+            @foreach ($types as $type)
+                <option value="{{$type->id}}">{{$type->name}}</option>
+            @endforeach
+            </select>
+        </div> 
+
+        <button type="submit" class="btn btn-primary my-3">Betaal</button>
+    </form>
+</div>
+</div>
+</div>
+@endsection

@@ -16,10 +16,6 @@ class User extends \TCG\Voyager\Models\User
         return $this->belongsTo(City::class);
     }
 
-    public function order() {
-        return $this->hasMany(Order::class);
-    }
-
     public function restaurant() {
         return $this->hasMany(Restaurant::class);
     }
