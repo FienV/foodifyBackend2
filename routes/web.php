@@ -8,6 +8,7 @@ use App\Models\Dish;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MollieController;
+use RealRashid\SweetAlert\Facades\Alert;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,8 +56,9 @@ Route::get('/order/{id}/{resto_id}', function ($id,$resto_id) {
   session()->push('dishes', $id);
   //print_r(session('dishes'));
   
-  //return to the resto dishes.... Would be nice to implement a sweetalert with succes added to cart notification
+  //return to the resto dishes
   //we retrieve the resto id from the view as it is eager loaded in the collection ($dish->restaurant->id)
+  alert()->success('Gerecht toegevoegd aan winkelmandje');
   return redirect('/menu/'.$resto_id);
 });
 
