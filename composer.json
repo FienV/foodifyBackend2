@@ -15,6 +15,7 @@
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "mollie/laravel-mollie": "^2.14",
+        "realrashid/sweet-alert": "^4.0",
         "tcg/voyager": "^1.4"
     },
     "require-dev": {

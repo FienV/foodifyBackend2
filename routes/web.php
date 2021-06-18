@@ -8,6 +8,7 @@ use App\Models\Dish;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MollieController;
+use RealRashid\SweetAlert\Facades\Alert;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,6 +52,14 @@ Route::get('/menu/{id}', 'DishController@detail');
 Route::get('/order/{id}/{resto_id}', function ($id,$resto_id) {
   
   session()->push('dishes', $id);
+<<<<<<< HEAD
+=======
+  //print_r(session('dishes'));
+  
+  //return to the resto dishes
+  //we retrieve the resto id from the view as it is eager loaded in the collection ($dish->restaurant->id)
+  alert()->success('Gerecht toegevoegd aan winkelmandje');
+>>>>>>> 6a5c4dad7820ef55a8d7c949357dc09c2e0c2b9d
   return redirect('/menu/'.$resto_id);
 });
 
