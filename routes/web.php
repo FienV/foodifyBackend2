@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
   
 Route::get('/order/{id}', 'OrderController@index');
-Route::post('/order/{id}', 'OrderController@Store');
+
 
 Route::get('/contact', function () {
     return view('contact');  
@@ -36,6 +36,7 @@ Route::get('/validation', function () {
 });
 
 Route::get('/affirmation', 'OrderController@create');
+Route::post('/affirmation', 'OrderController@Store');
 
 Route::get('/signup', 'ClientController@Create');
 Route::post('/signup', 'ClientController@Store');
@@ -52,14 +53,11 @@ Route::get('/menu/{id}', 'DishController@detail');
 Route::get('/order/{id}/{resto_id}', function ($id,$resto_id) {
   
   session()->push('dishes', $id);
-<<<<<<< HEAD
-=======
   //print_r(session('dishes'));
   
   //return to the resto dishes
   //we retrieve the resto id from the view as it is eager loaded in the collection ($dish->restaurant->id)
   alert()->success('Gerecht toegevoegd aan winkelmandje');
->>>>>>> 6a5c4dad7820ef55a8d7c949357dc09c2e0c2b9d
   return redirect('/menu/'.$resto_id);
 });
 
