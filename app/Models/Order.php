@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class Order extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public function type() {
         return $this->belongsTo(Type::class);

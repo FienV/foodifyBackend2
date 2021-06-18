@@ -47,7 +47,28 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {  
-      
+        $validate = request()->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'city_id' => 'required',
+            'type_id'=>'required',
+            'address' => 'required',
+        ]);
+
+       
+        $order = Order::Create(
+            
+            [
+              'email' => $request->email,
+              'name' => $request->name,
+              'phone' => $request->phone,
+              'city_id' => $request->city_id,
+              'type_id' => $request->type_id,
+              'address' => $request->address,
+            ]
+        );  
+        return redirect('/mollie-payment');
     }
 
     /**

@@ -22,7 +22,7 @@ class MollieController extends Controller
         $payment = Mollie::api()->payments()->create([
         'amount' => [
             'currency' => 'EUR', // Type of currency you want to send
-            'value' => '10.00', // You must send the correct number of decimals, thus we enforce the use of strings
+            'value' => number_format($totalprice, 2), // You must send the correct number of decimals, thus we enforce the use of strings
         ],
         'description' => 'Bestelling bij Foodify', 
         'redirectUrl' => route('payment.success'), // after the payment completion where you to redirect

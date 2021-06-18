@@ -56,7 +56,8 @@
                   </a>
                 </td>
               </tr>
-              @php $totalprice = $totalprice + $order->price; @endphp
+              @php $totalprice = $totalprice + $order->price;
+               @endphp
               @endforeach
                     
             </div>
