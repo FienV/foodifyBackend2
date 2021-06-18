@@ -22,6 +22,7 @@
   </head>
 
   <body>
+    @include('sweetalert::alert')
 
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
