@@ -59,6 +59,7 @@ class OrderController extends Controller
        
         $order = Order::Create(
             
+            // Add time and date to the DB with carbon helper
             [
               'email' => $request->email,
               'name' => $request->name,
@@ -66,6 +67,7 @@ class OrderController extends Controller
               'city_id' => $request->city_id,
               'type_id' => $request->type_id,
               'address' => $request->address,
+              'date' => \Carbon\Carbon::now()
             ]
         );  
         return redirect('/mollie-payment');
