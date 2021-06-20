@@ -1436,3 +1436,33 @@ footer .contact-form button.filled-button:hover {
 
 h5 a { color: #a4c639; } 
 h5 a:hover { color: inherit; } 
+
+.swal2-confirm {
+	background-color: #a4c639 !important;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 30px !important;
+    bottom: 25px;
+	width: 30%;
+    text-align: center;
+}
+
+.swal2-confirm:active {
+    box-shadow: none !important;
+}
+
+.swal2-title {
+	font-size: 20px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.25px;
+    margin-bottom: 15px;
+	font-family: 'Poppins', sans-serif !important;
+}
+
+.swal2-styled {
+    margin: .3125em;
+    padding: .625em 1.1em;
+    transition: box-shadow .1s;
+    box-shadow: 0 0 0 3px #a4c639 transparent !important;
+}
