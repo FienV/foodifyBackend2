@@ -43,12 +43,6 @@
                   </div>
                 </td>
                 <td>€ {{$order->price}}</td>
-                <td class="quantity">
-                  <div class="input-group">
-                    @csrf
-                    <input type="number" id="amount" name="amount" class="quantity form-control input-number" value="1"  min="1" max="100">
-                  </div>
-                </td>
                 <td>
                   <a href='/removecart/{{$order->id}}'>
                     <span aria-hidden="true"><i class="fa fa-close" style="color: #dc3545;

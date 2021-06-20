@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Order;
+use App\Models\Dish;
 use Mollie\Laravel\Facades\Mollie;
+use Mail;
 
 class MollieController extends Controller
 {
@@ -18,7 +21,6 @@ class MollieController extends Controller
      */
     public function preparePayment()
     {   
-        
         $payment = Mollie::api()->payments()->create([
         'amount' => [
             'currency' => 'EUR', // Type of currency you want to send
@@ -41,9 +43,16 @@ class MollieController extends Controller
      */
     public function paymentSuccess() {
         //echo 'Wij hebben jouw betaling ontvangen';
-        $latest = \App\Models\Order::latest()->first();
+        $latest = Order::with('type', 'city','hour')->latest()->first();
         $latest->payment = 1;
         $latest->save();
+        $dishes = Dish::find(session('dishes'));
+
+        Mail::send('mails.orderok', compact('latest', 'dishes'), function($message){
+            $message->to('info@foodify.com')
+            ->subject('Bestelling');
+        });
+        session()->flush();
         return redirect('validation');
         //redirecten naar bedankt
     }

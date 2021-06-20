@@ -17,6 +17,14 @@ class Order extends Model
         return $this->belongsTo(Type::class);
     }
 
+    public function city() {
+        return $this->belongsTo(City::class);
+    }
+
+    public function hour() {
+        return $this->belongsTo(Hour::class);
+    }
+
     public function dish() {
         return $this->belongsToMany(Dish::class);
     }
