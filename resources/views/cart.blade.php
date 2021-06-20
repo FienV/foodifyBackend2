@@ -59,11 +59,8 @@
           </table>
            <h2 class='ml-2'>Totaalprijs: € {{$totalprice}}</h2>
            @php 
-           session()->push('totalprice', $totalprice);
-           //session()->flush();
-           //print_r(session('totalprice'));
-           @endphp
-          
+           // put the totalprice in the session for use in the mollie controller
+           session()->put('totalprice', $totalprice); @endphp
         </div>
       </div>
     </div>
