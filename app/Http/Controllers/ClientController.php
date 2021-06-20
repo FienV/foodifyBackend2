@@ -39,6 +39,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+        //validatie verplichte velden
         $validate = request()->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -48,7 +49,7 @@ class ClientController extends Controller
             'address' => 'required',
         ]);
 
-       
+       //storen in db
         $user = User::firstOrCreate(
             ['email' => $request->email],
             

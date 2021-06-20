@@ -64,6 +64,11 @@
             </tbody>
           </table>
            <h2 class='ml-2'>Totaalprijs: € {{$totalprice}}</h2>
+           @php 
+           session()->push('totalprice', $totalprice);
+           //session()->flush();
+           //print_r(session('totalprice'));
+           @endphp
           
         </div>
       </div>

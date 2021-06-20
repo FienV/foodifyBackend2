@@ -15,4 +15,8 @@ class City extends Model
     public function restaurant() {
         return $this->hasMany(Restaurant::class);
     }
+
+    public function order() {
+        return $this->hasMany(Order::class);
+    }
 }

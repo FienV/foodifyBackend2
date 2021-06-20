@@ -41,7 +41,19 @@
             @endforeach
             </select>
         </div> 
-        
+        <div class="form-group mt-3">
+            <label for="">Datum levering/afhaling</label>
+            <input type="date" class="form-control" name="date" value="{{ old('date') }}">
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="exampleFormControlSelect1">Kies een uur</label>
+            <select class="form-control" name="hour_id">
+            @foreach ($hours as $hour)
+                <option value="{{$hour->id}}">{{$hour->name}}</option>
+            @endforeach
+            </select>
+        </div> 
         <div class="form-group mt-3">
             <label for="exampleFormControlSelect1">Kies een bezorgoptie</label>
             <select class="form-control" name="type_id">

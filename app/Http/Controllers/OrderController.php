@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Dish;
 use App\Models\Type;
 use App\Models\City;
+use App\Models\Hour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,7 +37,8 @@ class OrderController extends Controller
     {
         $cities = City::all();
         $types = Type::all();
-        return view('affirmation', compact('cities', 'types'));
+        $hours = Hour::all();
+        return view('affirmation', compact('cities', 'types', 'hours'));
     }
 
     /**
@@ -47,6 +49,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {  
+        //validatie verplichte velden
         $validate = request()->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -54,9 +57,11 @@ class OrderController extends Controller
             'city_id' => 'required',
             'type_id'=>'required',
             'address' => 'required',
+            'date'=>'required|date',
+            'hour_id' => 'required',
         ]);
 
-       
+       //storen in db 
         $order = Order::Create(
             
             [
@@ -66,6 +71,8 @@ class OrderController extends Controller
               'city_id' => $request->city_id,
               'type_id' => $request->type_id,
               'address' => $request->address,
+              'date' => $request->date,
+              'hour_id' => $request->hour_id,
             ]
         );  
         return redirect('/mollie-payment');
@@ -77,9 +84,15 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($id,$resto_id)
     {
-   
+        session()->push('dishes', $id);
+        //print_r(session('dishes'));
+        
+        //return to the resto dishes
+        //we retrieve the resto id from the view as it is eager loaded in the collection ($dish->restaurant->id)
+        alert()->success('Gerecht toegevoegd aan winkelmandje');
+        return redirect('/menu/'.$resto_id);
     }
 
     /**
@@ -117,6 +130,33 @@ class OrderController extends Controller
     }
 
 
-    
+    public function cart()
+    {
+        // check if cart session is set - if no items in cart redirect to empty cart
+        if (session('dishes')) {
+        // Get the dishes from the session array
+        $orders = Dish::whereIn('id', session('dishes'))->get();
+        // Get the types
+        $types = Type::get();
+        return view('cart', compact('orders','types'));
+            } else {
+        return view('nocart');
+        }   
+    }
 
+    public function removecart($id)
+    { 
+    //iterate cart session and look for id, if found unset it...
+    $cart[] = session('dishes');
+    $i=0;
+    foreach ($cart as $index => $product) {
+        if ($product[$i] == $id) {
+       unset($cart[$i]);
+          }
+    }
+    // reset the correct values for the cart without the removed items
+    session(['dishes' => $cart]);
+
+    return redirect('/cart');
+    }
 }

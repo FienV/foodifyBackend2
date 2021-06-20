@@ -37,14 +37,14 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         
-
+        //validatie verplichte velden
         $validate = request()->validate([
             'name' => 'required',
             'email' => 'required|email',
             'subject' => 'required',
             'message' => 'required',
         ]);
-
+        //mails uitsturen
         Mail::send('mails.contact', compact('validate'), function($message){
             $message->to('info@foodify.com')
             ->subject('Contactformulier van '. request('name'));
