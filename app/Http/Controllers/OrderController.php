@@ -70,6 +70,16 @@ class OrderController extends Controller
               'date' => \Carbon\Carbon::now()
             ]
         );  
+
+        // Store in pivot table - first get latest order
+        $latest = \App\Models\Order::latest()->first();
+        // Get the dishes from the session array
+        $orders = \App\Models\Dish::whereIn('id', session('dishes'))->get();
+        foreach ($orders as $order) {
+        $latest->dish()->attach($order->id);
+        }
+
+
         return redirect('/mollie-payment');
     }
 
