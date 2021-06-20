@@ -24,7 +24,6 @@
               <tr>
                 <th><h3>Gerecht</h3></th>
                 <th><h3>Prijs</h3></th>
-                <th><h3>Hoeveelheid<h3></th>
                   <th></th>
               </tr>
               
