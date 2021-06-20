@@ -80,7 +80,7 @@
     </div>
   </form>
     <!--order button -->   
-    <button type="submit" class="buy-btn">Betaal</button>
+    <a href="/payment" class="buy-btn mt-4 mb-4">Laat al dat lekkers maar komen...</a>
 </div>
 
 @endsection

@@ -76,6 +76,24 @@ Route::get('/cart', function () {
   }
 });
 
+Route::get('/payment', function () {
+  // check if cart session is set - if no items in cart redirect to empty cart
+  if (session('dishes')) {
+       // Get the dishes from the session array
+      $orders = App\Models\Dish::whereIn('id', session('dishes'))->get();
+      // Get the types
+      $types = App\Models\Type::get();
+      return view('payment', compact('orders','types'));
+  } else {
+      return view('nocart');
+  }
+});
+
+Route::post('/orderstore', function () {
+ 
+});
+
+
 // Delete item from cart method
 Route::get('removecart/{id}', function($id) {
   
